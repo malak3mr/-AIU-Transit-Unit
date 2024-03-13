@@ -1,0 +1,190 @@
+/* Reset default margin and padding */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Basic styles */
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://blog.tbrc.info/wp-content/uploads/2023/01/buses_and_coaches-min-e1674215331418.png');
+    /* URL accessible via the web */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 1cm;
+    /* Start after 20cm from the top */
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    background-attachment: scroll;
+}
+
+
+/* Existing styles */
+
+header {
+    background-color: #7c0b0b;
+    color: #fefefe;
+    padding: 1rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: #f9fafc;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+    height: 25cm;
+    /* Set the height to occupy 90% of the viewport */
+    margin: auto;
+    /* Center the main content horizontally */
+    width: 80%;
+    /* Set the width to occupy 80% of the viewport */
+    max-width: 1200px;
+    /* Limit the maximum width of the main content */
+    border-radius: 10px;
+    /* Add rounded corners */
+    overflow: auto;
+    /* Enable scrolling if content exceeds viewport height */
+}
+
+
+/* Existing styles */
+
+
+/* Login Form styles */
+
+#login-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent white background */
+    padding: 2rem;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the login form both horizontally and vertically */
+    width: 50%;
+    /* Adjust width as needed */
+    box-sizing: border-box;
+    border-top: 1px solid #ccc;
+    backdrop-filter: blur(10px);
+    /* Apply blurring effect to the login form */
+}
+
+#login-form h2 {
+    margin-bottom: 1rem;
+}
+
+#login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form label {
+    margin-bottom: 0.5rem;
+}
+
+#login-form input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#login-form button {
+    background-color: #7c0b0b;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#login-form button:hover {
+    background-color: #a60a0a;
+}
+
+
+/* Existing styles */
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: end;
+    /* Set position to absolute */
+    bottom: 0;
+    /* Align to the bottom of the viewport */
+    width: 100%;
+    /* Ensure full width */
+}
+
+main,
+footer {
+    max-width: 100%;
+    /* Ensure they don't overflow */
+    padding: 0 1rem;
+    /* Add some padding */
+    box-sizing: border-box;
+    /* Include padding in width calculation */
+}
+
+
+/* Ensure header and footer content is centered */
+
+header,
+footer {
+    text-align: center;
+}
+
+
+/* Existing styles */
+
+
+/* Image container styles */
+
+.image-container {
+    text-align: center;
+    /* Center the image horizontally */
+}
+
+.image-container img {
+    max-width: 100%;
+    /* Ensure the image doesn't exceed its container's width */
+}
+
+
+/* Description section styles */
+
+#description {
+    top: 22cm;
+    /* Light gray background color */
+    padding: 3rem;
+    text-align: center;
+    /* Center-align text */
+    position: absolute;
+    /* Set position to absolute */
+    bottom: 0;
+    /* Position at the bottom of the viewport */
+    width: 30cm;
+    /* Ensure full width */
+    height: 5cm;
+    color: #fff;
+    backdrop-filter: blur(20px);
+}
