@@ -202,7 +202,6 @@ input[type="submit"] {
 .centered-box {
     display: flex;
     flex-direction: column;
-    /* Add this to stack h1 and p vertically */
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -219,7 +218,6 @@ input[type="submit"] {
     font-size: 2.5em;
     margin-bottom: 20px;
     font-style: italic;
-    /* Add this to give some space between h1 and p */
 }
 
 .centered-box p {
@@ -227,6 +225,6 @@ input[type="submit"] {
     padding: 10px;
     border-radius: 8px;
     font-size: 1.2em;
-    color: #030303;
+    color: #ffffff;
 }
 
