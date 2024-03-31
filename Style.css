@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://blog.tbrc.info/wp-content/uploads/2023/01/buses_and_coaches-min-e1674215331418.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 1cm;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    background-attachment: scroll;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #0F106C;
+    color: #fefefe;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: #f9fafc;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+#login-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    box-sizing: border-box;
+    border-top: 1px solid #ccc;
+    backdrop-filter: blur(10px);
+}
+
+#login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form label {
+    margin-bottom: 0.5rem;
+}
+
+#login-form input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#login-form button {
+    background-color: #030303;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#login-form button:hover {
+    background-color: #403c3c;
+}
+
+footer {
+    background-color: #C92126;
+    color: #fff;
+    padding: 1rem;
+    margin-top: auto;
+    text-align: center;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+}
+
+#description {
+    padding: 3rem;
+    text-align: center;
+    color: #fff;
+    backdrop-filter: blur(20px);
+}
+
+.logo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 200px;
+}
+  
+header .header-nav .nav-img {
+    float: left;
+    display: inline-block;
+}
+  
+header .header-nav .nav-item {
+    z-index: 999;
+    display: inline-block;
+}
+  
+header .header-nav .nav-item ul li {
+    float: none;
+    display: inline-block;
+    font-family: "mouse-500", Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 25px 11px 11px 11px;
+    text-align: center;
+}
+  
+header .header-nav .nav-img img {
+    width: 150px;
+    height: 75px;
+    padding: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 20px;
+}
+  
+header .header-nav {
+    text-align: center;
+}
+  
+.Form {
+    padding-top: 50px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input[type="text"], input[type="email"], textarea {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #000000;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.route-box {
+    border: 1px solid #000;
+    margin: 10px;
+    padding: 20px;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+.route-container {
+    display: flex;
+    justify-content: center;
+}
+
+.centered-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-image: url('https://studyinegy.com/wp-content/uploads/2023/02/2021-09-13.webp');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.centered-box h1 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 100px; 
+}
