@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Plan a Trip</title>
-        <link rel="stylesheet" href="Style.css">
+        <title>Request a Route</title>
+        <link rel="stylesheet" href="../Assets/Style.css">
     </head>
 
     <body>
@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-md-3 col-sm-12 nav-img">
                             <a href="home.html">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXNqVpj0FMeNAO_dA0XHrfjnAuZXdfHOYY4XZ0X-Cctg&s" alt="AIU Transit Unit Logo">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXNqVpj0FMeNAO_dA0XHrfjnAuZXdfHOYY4XZ0X-Cctg&s" alt="Logo">
                             </a>
                         </div>                    
                         <div id="menu" class="col-md-9 d-none d-md-block nav-item">
@@ -22,8 +22,9 @@
                                 <li><a href="Routes.html">Routes</a></li>
                                 <li><a href="PlanTrip.html">Plan a Trip</a></li>
                                 <li><a href="Request.html">Request a Route</a></li>
+                                <li><a href="history.html">Trips History</a></li>
                                 <li><a href="Complaint.html">Submit a Complaint</a></li>
-                                <li><a href="Contact.Html">Contact Us</a></li>
+                                <li><a href="Contact.Html">Contact Us</a></li>      
                             </ul>
                         </div>
                     </div>
@@ -32,8 +33,8 @@
         </header>
         
         <div class="Form">
-            <h2>Plan a Trip</h2>
-            <form action="/submit_trip_plan" method="post">
+            <h2>Request a Route</h2>
+            <form action="/submit_route_request" method="post">
                 <label for="fname">Name</label>
                 <input type="text" id="name" name="name" placeholder="Your name..">
         
@@ -43,29 +44,13 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Your email..">
         
-                <label for="trip">Trip</label>
-                <select id="trip" name="trip">
-                    <option value="">Select a trip...</option>
-                </select>
-<br>
                 <label for="pickup">Pickup Location</label>
-                <select id="pickup" name="pickup">
-                    <option value="">Select a pickup location...</option>
-                </select>
-<br>
+                <input type="text" id="pickup" name="pickup" placeholder="Your Pickup Location..">
+
                 <label for="dropoff">Drop-off Location</label>
-                <select id="dropoff" name="dropoff">
-                    <option value="">Select a drop-off location...</option>
-                </select>
-<br>
-                <label for="day">Day</label>
-                <input type="date" id="day" name="day">
-                <br>
-                <label for="time">Time</label>
-                <input type="time" id="time" name="time">
-                <br>
-                <input type="submit" value="Confirm">
-                <br>
+                <input type="text" id="dropoff" name="dropoff" placeholder="Your Drop-off Location..">
+        
+                <input type="submit" value="Submit">
                 <br>
             </form>
         </div>

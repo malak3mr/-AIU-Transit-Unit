@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Request a Route</title>
-        <link rel="stylesheet" href="Style.css">
+        <title>Contact Us</title>
+        <link rel="stylesheet" href="../Assets/Style.css">
     </head>
 
     <body>
@@ -22,8 +22,9 @@
                                 <li><a href="Routes.html">Routes</a></li>
                                 <li><a href="PlanTrip.html">Plan a Trip</a></li>
                                 <li><a href="Request.html">Request a Route</a></li>
+                                <li><a href="history.html">Trips History</a></li>
                                 <li><a href="Complaint.html">Submit a Complaint</a></li>
-                                <li><a href="Contact.Html">Contact Us</a></li>
+                                <li><a href="Contact.Html">Contact Us</a></li>      
                             </ul>
                         </div>
                     </div>
@@ -32,8 +33,8 @@
         </header>
         
         <div class="Form">
-            <h2>Request a Route</h2>
-            <form action="/submit_route_request" method="post">
+            <h2>Contact Form</h2>
+            <form action="/submit_form" method="post">
                 <label for="fname">Name</label>
                 <input type="text" id="name" name="name" placeholder="Your name..">
         
@@ -43,17 +44,14 @@
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="Your email..">
         
-                <label for="pickup">Pickup Location</label>
-                <input type="text" id="pickup" name="pickup" placeholder="Your Pickup Location..">
-
-                <label for="dropoff">Drop-off Location</label>
-                <input type="text" id="dropoff" name="dropoff" placeholder="Your Drop-off Location..">
+                <label for="subject">Message</label>
+                <textarea id="subject" name="subject" placeholder="Write your message.." style="height:200px"></textarea>
         
                 <input type="submit" value="Submit">
                 <br>
             </form>
         </div>
-        
+
         <footer>
             <p>© 2024 AIU Transit Unit. All rights reserved.</p>
         </footer>

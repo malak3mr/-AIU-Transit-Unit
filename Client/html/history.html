@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trips History</title>
+    <link rel="stylesheet" href="../Assets/Style.css">
+</head>
+<body>
+    <header>
+        <nav id="nav-head" class="header-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 nav-img">
+                        <a href="home.html">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXNqVpj0FMeNAO_dA0XHrfjnAuZXdfHOYY4XZ0X-Cctg&s" alt="Logo">
+                        </a>
+                    </div>                    
+                    <div id="menu" class="col-md-9 d-none d-md-block nav-item">
+                        <ul>
+                            <li><a href="Routes.html">Routes</a></li>
+                            <li><a href="PlanTrip.html">Plan a Trip</a></li>
+                            <li><a href="Request.html">Request a Route</a></li>
+                            <li><a href="history.html">Trips History</a></li>
+                            <li><a href="Complaint.html">Submit a Complaint</a></li>
+                            <li><a href="Contact.Html">Contact Us</a></li>      
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <h1 class="big-title"><br>Trips History</h1>
+    
+    <div class="history-box">
+        <div class="history-column">
+            <strong>Trip</strong>
+            <span id="trip"></span>
+        </div>
+        <div class="history-column">
+            <strong>Pickup Location</strong>
+            <span id="pickupLocation"></span>
+        </div>
+        <div class="history-column">
+            <strong>Drop-off Location</strong>
+            <span id="dropoffLocation"></span>
+        </div>
+        <div class="history-column">
+            <strong>Day</strong>
+            <span id="day"></span>
+        </div>
+        <div class="history-column">
+            <strong>Time</strong>
+            <span id="time"></span>
+        </div>
+        <div class="history-buttons">
+            <button id="rebookBtn" onclick="window.location.href='Tracking.html';">Track</button>
+            <button id="addToCalendarBtn">Add to Calendar</button>
+        </div>
+    </div>
+    
+    <br>
+
+    <div class="history-box">
+        <div class="history-column">
+            <strong>Trip</strong>
+            <span id="trip"></span>
+        </div>
+        <div class="history-column">
+            <strong>Pickup Location</strong>
+            <span id="pickupLocation"></span>
+        </div>
+        <div class="history-column">
+            <strong>Drop-off Location</strong>
+            <span id="dropoffLocation"></span>
+        </div>
+        <div class="history-column">
+            <strong>Day</strong>
+            <span id="day"></span>
+        </div>
+        <div class="history-column">
+            <strong>Time</strong>
+            <span id="time"></span>
+        </div>
+        <div class="history-buttons">
+            <button id="rebookBtn" onclick="window.location.href='PlanTrip.html';">Rebook Trip</button>
+            <button id="rebookBtn" onclick="window.location.href='Rate.html';">Rate Trip</button>
+        </div>
+    </div>
+    <br>
+
+    <footer>
+        <p>© 2024 AIU Transit Unit. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const trip = urlParams.get('trip');
+        const pickupLocation = urlParams.get('pickupLocation');
+        const dropoffLocation = urlParams.get('dropoffLocation');
+        const day = urlParams.get('day');
+        const time = urlParams.get('time');
+        
+        document.getElementById('trip').textContent = trip;
+        document.getElementById('pickupLocation').textContent = pickupLocation;
+        document.getElementById('dropoffLocation').textContent = dropoffLocation;
+        document.getElementById('day').textContent = day;
+        document.getElementById('time').textContent = time;
+
+        const rebookBtn = document.getElementById('rebookBtn');
+        rebookBtn.addEventListener('click', () => {});
+
+        const rateBtn = document.getElementById('rateBtn');
+        rateBtn.addEventListener('click', () => {});
+
+        const addToCalendarBtn = document.getElementById('addToCalendarBtn');
+        addToCalendarBtn.addEventListener('click', () => {});
+    </script>
+</body>
+</html>
