@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIU Transit Unit</title>
+    <link rel="stylesheet" href="/stylesheets/Styleu.css">
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <section id="login-form">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/AIU_New_Logo.png/1200px-AIU_New_Logo.png" alt="Logo">
+        </div>
+        <form action='/homeu' method=" POST ">
+            <label for="userid ">ID:</label>
+            <input type="text " id="userid " name="userid " required>
+
+            <label for="password ">Password:</label>
+            <input type="password " id="password " name="password " required>
+
+            <button type="submit ">Sign in</button>
+        </form>
+        <a href='/homeu' class="button ">Home</a>
+    </section>
+
+    <footer>
+        <p>© 2024 AIU Transit Unit. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener(" DOMContentLoaded ", function() {
+            var submitButton = document.querySelector("button[type='submit' ] ");
+            if (submitButton) {
+                submitButton.addEventListener("click ", function(event) {
+                    event.preventDefault(); // Prevent form submission
+
+                    var userid = document.getElementById("userid ").value;
+                    var password = document.getElementById("password ").value;
+
+                    var data = {
+                        userid: userid, // Corrected variable name
+                        password: password
+                    };
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST ", "http://localhost:7000/login ", true);
+                    xhr.setRequestHeader("Content-Type ", "application/json ");
+
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            console.log("Data sent successfully ");
+                        } else {
+                            console.error("Error sending data: ", xhr.status);
+                        }
+                    };
+
+                    xhr.onerror = function() {
+                        console.error("Request failed ");
+                    };
+
+                    xhr.send(JSON.stringify(data));
+                });
+            } else {
+                console.error("Submit button not found ");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

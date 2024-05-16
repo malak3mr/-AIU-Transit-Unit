@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="/stylesheets/Styleu.css">
+</head>
+
+<body>
+    <header>
+        <nav id="nav-head" class="header-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 nav-img">
+                        <a href="/homeu">
+                            <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXNqVpj0FMeNAO_dA0XHrfjnAuZXdfHOYY4XZ0X-Cctg&s " alt="AIU Transit Unit Logo ">
+                        </a>
+                    </div>
+                    <div id="menu " class="col-md-9 d-none d-md-block nav-item ">
+                        <ul>
+                            <li><a href="/Routes ">Routes</a></li>
+                            <li><a href="/PlanTrip ">Plan a Trip</a></li>
+                            <li><a href="/Request ">Request a Route</a></li>
+                            <li><a href="/history ">Trips History</a></li>
+                            <li><a href="/Complaint ">Submit a Complaint</a></li>
+                            <li><a href="/Contact ">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="Form ">
+        <h2>Payment</h2>
+        <form action="/confirmation " method="get ">
+            <label for="card_name ">Name on Card</label>
+            <input type="text " id="card_name " name="card_name " placeholder="Name on Card " required>
+
+            <label for="card_number ">Card Number</label>
+            <input type="text " id="card_number " name="card_number " placeholder="Card Number " required>
+
+            <label for="expiry_date ">Expiry Date</label>
+            <input type="text " id="expiry_date " name="expiry_date " placeholder="MM/YY " required>
+
+            <label for="cvv ">CVV</label>
+            <input type="text " id="cvv " name="cvv " placeholder="CVV " required>
+
+            <button type="submit " value="Pay Now">
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 AIU Transit Unit. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded ", function() {
+            var submitButton = document.querySelector("input[type='submit' ] ");
+            if (submitButton) {
+                submitButton.addEventListener("click ", function(event) {
+                    event.preventDefault(); // Prevent form submission
+
+                    var namecard = document.getElementById("card_name ").value;
+                    var cardnumber = document.getElementById("card_number ").value;
+                    var expirydate = document.getElementById("expiry_date ").value;
+                    var cvv = document.getElementById("cvv ").value;
+
+                    var data = {
+                        namecard: namecard,
+                        cardnumber: cardnumber,
+                        expirydate: expirydate,
+                        cvv: cvv
+                    };
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST ", "http://localhost:7000/payment ", true);
+                    xhr.setRequestHeader("Content-Type ", "application/json ");
+
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            console.log("Data sent successfully ");
+                        } else {
+                            console.error("Error sending data: ", xhr.status);
+                        }
+                    };
+
+                    xhr.onerror = function() {
+                        console.error("Request failed ");
+                    };
+
+                    xhr.send(JSON.stringify(data));
+                });
+            } else {
+                console.error("Submit button not found ");
+            }
+        });
+    </script>
+</body>
+
+</html>

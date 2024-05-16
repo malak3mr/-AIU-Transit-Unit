@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/cookies.css">
+    <title>Document</title>
+</head>
+
+<body onload="showModel()">
+    <div id="modalbox">
+        <p>We use cookies to optimize user experience and content</p>
+        <button type="button" onclick="closeModel()">Accept</button>
+    </div>
+    <script>
+        let modalBox = document.getElementById("modelbox");
+
+        function showModel() {
+            setTimeout(() => {
+                modalBox.style.display = "block";
+
+            }, 3000)
+        }
+
+        function closeModel() {
+            modalBox.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

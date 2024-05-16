@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports</title>
+    <link rel="stylesheet" href="/stylesheets/Report.css">
+</head>
+
+<body>
+    <header>
+        <h1 id="head">Report Admin</h1>
+    </header>
+    <a href="/home" class="back">Go back home</a>
+    <div class="container">
+
+        <div class="report-section">
+            <h3>Enter Report Details</h3>
+            <input type="text" id="adminId" placeholder="Admin ID"><br>
+            <input type="text" id="adminName" placeholder="Admin Name"><br>
+            <textarea id="reportText" placeholder="Enter Report"></textarea><br>
+            <input type="text" id="trips" placeholder="Enter Trips"><br>
+            <button id="submitReport">Submit Report</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2024 AIU Transit Unit. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var submitButton = document.getElementById("submitReport");
+            if (submitButton) {
+                submitButton.addEventListener("click", function() {
+                    var adminid = document.getElementById("adminId").value;
+                    var admin_name = document.getElementById("adminName").value;
+                    var reports = document.getElementById("reportText").value;
+                    var new_trips = document.getElementById("trips").value;
+
+                    var data = {
+                        adminid: adminid,
+                        admin_name: admin_name,
+                        reports: reports,
+                        new_trips: new_trips
+                    };
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "http://localhost:7000/admin", true);
+                    xhr.setRequestHeader("Content-Type", "application/json");
+
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            console.log("Data sent successfully");
+                        } else {
+                            console.error("Error sending data:", xhr.status);
+                        }
+                    };
+
+                    xhr.onerror = function() {
+                        console.error("Request failed");
+                    };
+
+                    xhr.send(JSON.stringify(data));
+                });
+            } else {
+                console.error("Submit button not found");
+            }
+        });
+    </script>
+</body>
+
+</html>

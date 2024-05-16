@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+    box-sizing: border-box;
+
+}
+#modalbox{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 80%;
+    max-width: 450px;
+    text-align: center;
+    padding: 80px 60px;
+    font-size: 18px;
+    font-weight: 500;
+    background: #fafafa;
+    border-radius: 8px;
+}
+
+
+#modalbox button{
+    background-color: #401aca;
+    color: #fff;
+    padding: 15px 0;
+    border-radius: 4px;
+    font-weight: 500;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    margin-top: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 15px rgba(0,0 , blue, 0.2 );
+}

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Seat Reservation</title>
+    <link rel="stylesheet" href="/stylesheets/Seat.css">
+</head>
+
+<body>
+    <div class="bus">
+        <div class="cockpit">
+        </div>
+        <div class="row">
+            <div class="seat" data-seat="33">33</div>
+            <div class="seat occupied" data-seat="32">32</div>
+            <div class="seat occupied" data-seat="31">32</div>
+            <div class="seat" data-seat="30">30</div>
+            <div class="seat" data-seat="29">29</div>
+        </div>
+
+        <div class="row">
+            <div class="seat" data-seat="28">28</div>
+            <div class="seat" data-seat="27">27</div>
+            <div class="seat corridor"></div>
+            <div class="seat" data-seat="26">26</div>
+            <div class="seat occupied" data-seat="25">25</div>
+
+        </div>
+        <div class="row">
+            <div class="seat" data-seat="24">24</div>
+            <div class="seat" data-seat="24">23</div>
+            <div class="seat corridor"></div>
+            <div class="seat" data-seat="22">22</div>
+            <div class="seat" data-seat="21">21</div>
+
+        </div>
+        <div class="row">
+            <div class="seat" data-seat="20">20</div>
+            <div class="seat" data-seat="19">19</div>
+            <div class="seat corridor"></div>
+            <div class="seat" data-seat="18">18</div>
+            <div class="seat occupied" data-seat="17">17</div>
+
+        </div>
+        <div class="row">
+            <div class="seat" data-seat="16">16</div>
+            <div class="seat" data-seat="15">15</div>
+            <div class="seat corridor"></div>
+            <div class="seat" data-seat="14">14</div>
+            <div class="seat" data-seat="13">13</div>
+
+        </div>
+        <div class="row">
+            <div class="seat" data-seat="12">12</div>
+            <div class="seat" data-seat="11">11</div>
+            <div class="seat corridor"></div>
+            <div class="seat" data-seat="10">10</div>
+            <div class="seat" data-seat="9">9</div>
+
+        </div>
+        <div class="row">
+            <div class="seat occupied" data-seat="8">8</div>
+            <div class="seat" data-seat="7">7</div>
+            <div class="seat corridor"></div>
+            <div class="seat" data-seat="6">6</div>
+            <div class="seat" data-seat="5">5</div>
+
+        </div>
+        <div class="row">
+            <div class="seat" data-seat="4">4</div>
+            <div class="seat" data-seat="3">3</div>
+            <div class="seat corridor"></div>
+            <div class="seat" data-seat="2">2</div>
+            <div class="seat" data-seat="1">1</div>
+
+        </div>
+        <button id="rebookBtn" onclick="window.location.href='/PlanTrip';">Cancel</button>
+        <button id="rebookBtn" onclick="window.location.href='/Payment';">Confirm</button>
+
+        <!-- Your HTML content -->
+        <button id="cancelBtn">Cancel</button>
+        <button id="confirmBtn">Confirm</button>
+
+        <script>
+            function confirmBooking() {
+                const selectedSeat = document.querySelector('.seat.selected');
+                if (selectedSeat) {
+                    const seatNumber = selectedSeat.getAttribute('data-seat');
+                    fetch('/confirm-booking', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                seatNumber: seatNumber
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('Booking confirmed successfully!');
+                                window.location.href = '/home'; // Redirect to home page after confirmation
+                            } else {
+                                alert('Failed to confirm booking. Please try again.');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error confirming booking:', error);
+                            alert('An error occurred while confirming booking.');
+                        });
+                } else {
+                    alert('Please select a seat before confirming.');
+                }
+            }
+
+            document.getElementById('cancelBtn').addEventListener('click', () => {
+                window.location.href = 'PlanTrip.html'; // Redirect to plan trip page
+            });
+
+            document.getElementById('confirmBtn').addEventListener('click', () => {
+                confirmBooking(); // Call the function to confirm booking
+            });
+
+            // Event listener for seat selection
+            document.querySelectorAll('.seat').forEach(seat => {
+                seat.addEventListener('click', () => {
+                    if (!seat.classList.contains('occupied') && !seat.classList.contains('corridor')) {
+                        document.querySelectorAll('.seat.selected').forEach(selectedSeat => {
+                            selectedSeat.classList.remove('selected');
+                        });
+                        seat.classList.add('selected');
+                    } else {
+                        alert("This seat is occupied and cannot be selected.");
+                    }
+                });
+            });
+        </script>
+
+
+
+</body>
+
+</html>

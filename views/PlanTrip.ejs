@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan a Trip</title>
+    <link rel="stylesheet" href="/stylesheets/Style.css">
+</head>
+
+<body>
+    <header>
+        <nav id="nav-head" class="header-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 nav-img">
+                        <a href="/homeu">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXNqVpj0FMeNAO_dA0XHrfjnAuZXdfHOYY4XZ0X-Cctg&s" alt="AIU Transit Unit Logo">
+                        </a>
+                    </div>
+                    <div id="menu" class="col-md-9 d-none d-md-block nav-item">
+                        <ul>
+                            <li><a href="/Routes">Routes</a></li>
+                            <li><a href="/PlanTrip">Plan a Trip</a></li>
+                            <li><a href="/Request">Request a Route</a></li>
+                            <li><a href="/history">Trips History</a></li>
+                            <li><a href="/Complaint">Submit a Complaint</a></li>
+                            <li><a href="/Contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="Form">
+        <h2>Plan a Trip</h2>
+        <form action="/seat" method="get">
+            <label for="fname">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name..">
+
+            <label for="studentid">Student ID</label>
+            <input type="text" id="studentid" name="studentid" placeholder="Your student ID..">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email..">
+
+            <label for="trip">Trip</label>
+            <select id="trip" name="trip">
+                    <option value="">Select a trip...</option>
+                </select>
+            <br>
+            <label for="pickup">Pickup Location</label>
+            <select id="pickup" name="pickup">
+                    <option value="">Select a pickup location...</option>
+                </select>
+            <br>
+            <label for="dropoff">Drop-off Location</label>
+            <select id="dropoff" name="dropoff">
+                    <option value="">Select a drop-off location...</option>
+                </select>
+            <br>
+            <label for="day">Day</label>
+            <input type="date" id="day" name="day">
+            <br>
+            <label for="time">Time</label>
+            <input type="time" id="time" name="time">
+            <br>
+            <input type="submit" value="Next">
+            <br>
+            <br>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 AIU Transit Unit. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var submitButton = document.querySelector("input[type='submit']");
+            if (submitButton) {
+                submitButton.addEventListener("click", "select", function(event) {
+                    event.preventDefault(); // Prevent form submission
+
+                    var studentid = document.getElementById("studentid").value;
+                    var name_student = document.getElementById("name").value;
+                    var email = document.getElementById("email").value;
+                    var trip = document.getElementById("trip").value;
+                    var pick_up_location = document.getElementById("pickup").value;
+                    var drop_off_location = document.getElementById("dropoff").value;
+                    var day = document.getElementById("day").value;
+                    var time = document.getElementById("time").value;
+
+                    var data = {
+                        studentid: studentid,
+                        name_student: name_student,
+                        email: email,
+                        trip: trip,
+                        pick_up_location: pick_up_location,
+                        drop_off_location: drop_off_location,
+                        day: day,
+                        time: time
+                    };
+
+
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "http://localhost:7000/seat", true);
+                    xhr.setRequestHeader("Content-Type", "application/json");
+
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+                            console.log("Data sent successfully");
+                            window.location.href = "seat.html"; // Redirect to seat.html after successful submission
+                        } else {
+                            console.error("Error sending data:", xhr.status);
+                        }
+                    };
+
+                    xhr.onerror = function() {
+                        console.error("Request failed");
+                    };
+
+                    xhr.send(JSON.stringify(data));
+                });
+            } else {
+                console.error("Submit button not found");
+            }
+        });
+    </script>
+</body>
+
+</html>

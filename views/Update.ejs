@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Routes</title>
+    <link rel="stylesheet" href="/stylesheets/Update.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo"></div>
+        <h1>Update Routes</h1>
+    </header>
+    <a href="/home" class="back">Go back home</a>
+    <div class="container">
+        <form id="routeForm">
+            <label for="routeSelect">Select Route:</label>
+            <select id="routeSelect" name="routeSelect">
+                <option value="route1">Route 1</option>
+                <option value="route2">Route 2</option>
+                <option value="route3">Route 3</option>
+            </select>
+
+            <p><br>Admin ID:</p>
+            <input type="text" id="adminid" name="adminid" required>
+
+            <p><br>Pickup location:</p>
+            <input type="text" id="pickupLocation" name="pickupLocation" required>
+
+            <p>Drop-off location:</p>
+            <input type="text" id="dropOffLocation" name="dropOffLocation" required>
+
+            <p>Day:</p>
+            <input type="text" id="day" name="day" required>
+
+            <p>Time:</p>
+            <input type="text" id="time" name="time" required>
+
+            <p>Driver Name:</p>
+            <input type="text" id="driverName" name="driverName" required>
+
+            <p>Bus Model:</p>
+            <input type="text" id="busModel" name="busModel" required>
+
+            <p>Bus Capacity:</p>
+            <input type="number" id="busCapacity" name="busCapacity" required>
+
+            <button type="submit" class="put">Update</button>
+        </form>
+        <a href='/homeu' class=" put"></a>
+    </div>
+    <footer>
+        <p>© 2024 AIU Transit Unit. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var submitButton = document.querySelector("button[type='submit']");
+            if (submitButton) {
+                submitButton.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent form submission
+
+                    var adminid = document.getElementById("adminid").value;
+                    var pick_up_location = document.getElementById("pickupLocation").value;
+                    var drop_off_location = document.getElementById("dropOffLocation").value;
+                    var day = document.getElementById("day").value;
+                    var time = document.getElementById("time").value;
+                    var driver_name = document.getElementById("driverName").value;
+                    var bus_model = document.getElementById("busModel").value;
+                    var bus_capacity = document.getElementById("busCapacity").value;
+
+                    var data = {
+                        adminid: adminid,
+                        pick_up_location: pick_up_location,
+                        drop_off_location: drop_off_location,
+                        day: day,
+                        time: time,
+                        driver_name: driver_name,
+                        bus_model: bus_model,
+                        bus_capacity: bus_capacity
+                    };
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", "http://localhost:7000/update", true);
+                    xhr.setRequestHeader("Content-Type", "application/json");
+
+                    xhr.onload = function() {
+                        if (xhr.status === 200) {
+
+                            console.log("Data sent successfully");
+                            window.history.back();
+
+                        } else {
+                            console.error("Error sending data:", xhr.status);
+                        }
+                    };
+
+                    xhr.onerror = function() {
+                        console.error("Request failed");
+                    };
+
+                    xhr.send(JSON.stringify(data));
+                });
+            } else {
+                console.error("Submit button not found");
+            }
+        });
+    </script>
+</body>
+
+</html>
